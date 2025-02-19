@@ -1,11 +1,14 @@
 package com.company.biblioteca.entity;
 
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Livro {
@@ -28,6 +31,9 @@ public class Livro {
 	private int ano_publicacao;
 
 	private String capa_url;
+	
+	@OneToMany(mappedBy = "livro")
+	private List<Exemplar> exemplares;
 	
 	public Long getId() {
 		return id;
