@@ -1,4 +1,4 @@
-package com.company.biblioteca.controller;
+package com.learning.biblioteca.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.company.biblioteca.exception.LivroNullException;
+import com.learning.biblioteca.exception.LivroNullException;
 
 @ControllerAdvice
 public class LivroControllerAdvice extends ResponseEntityExceptionHandler {

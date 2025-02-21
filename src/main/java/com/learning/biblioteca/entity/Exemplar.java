@@ -1,4 +1,4 @@
-package com.company.biblioteca.entity;
+package com.learning.biblioteca.entity;
 
 import org.hibernate.annotations.ColumnDefault;
 

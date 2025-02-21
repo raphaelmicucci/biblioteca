@@ -1,4 +1,4 @@
-package com.company.biblioteca.exception;
+package com.learning.biblioteca.exception;
 
 public class LivroNullException extends NullPointerException {
 
