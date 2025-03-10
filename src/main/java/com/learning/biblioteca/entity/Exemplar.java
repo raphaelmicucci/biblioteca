@@ -1,7 +1,5 @@
 package com.learning.biblioteca.entity;
 
-import org.hibernate.annotations.ColumnDefault;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,8 +13,6 @@ public class Exemplar {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	
-	@ColumnDefault("'Disponível'")
 	private String status;
 	
 	@ManyToOne
