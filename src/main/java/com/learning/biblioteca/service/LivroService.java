@@ -17,17 +17,25 @@ public class LivroService {
 	
 	
 	public Livro save(Livro livro) {
-		if (livro.getTitulo() == null || livro.getAutor() == null) {
-			throw new LivroNullException();
-		}
-		return repository.save(livro);
+            if (livro.getTitulo() == null || livro.getAutor() == null) {
+                throw new LivroNullException();
+            }
+            return repository.save(livro);
 	}
 	
 	public Livro findById(Long id) {
-		return repository.findById(id).orElse(null);
+            return repository.findById(id).orElse(null);
 	}
 	
 	public List<Livro> findAll() {
-		return repository.findAll();
+            return repository.findAll();
 	}
+        
+        public void deleteById(Long id) {
+            boolean existsById = repository.existsById(id);
+            
+            if (existsById) {
+                repository.deleteById(id);
+            }
+        }
 }

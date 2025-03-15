@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.learning.biblioteca.entity.Livro;
 import com.learning.biblioteca.service.LivroService;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 @RestController
 @RequestMapping("/livros")
@@ -24,17 +25,16 @@ public class LivroController {
 	@PostMapping
 	public ResponseEntity<Livro> salvaLivro(@RequestBody Livro livro) {
 		
-		livro = service.save(livro);
-		
-		return ResponseEntity.ok().body(livro);
+            livro = service.save(livro);
+
+            return ResponseEntity.ok().body(livro);
 	}
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Livro> buscaLivro(@PathVariable Long id) {
-		
-		Livro livro = service.findById(id);
-		
-		return ResponseEntity.ok().body(livro);
+            Livro livro = service.findById(id);
+
+            return ResponseEntity.ok().body(livro);
 	}
 	
 	@GetMapping
@@ -45,4 +45,10 @@ public class LivroController {
 		return ResponseEntity.ok().body(livros);
 	}
 	
+        @DeleteMapping(value = "/{id}")
+        public ResponseEntity<Void> apagaLivro(@PathVariable Long id) {
+            service.deleteById(id);
+
+            return ResponseEntity.noContent().build();
+        }
 }

@@ -34,12 +34,10 @@ public class WebSecurityConfig {
         return  http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                    
                     .requestMatchers(SWAGGER_WHITELIST).permitAll()
                     .requestMatchers(HttpMethod.POST,"/login").permitAll()
                     .requestMatchers(HttpMethod.POST,"/usuarios").permitAll()
-                    .requestMatchers(HttpMethod.GET,"/users").hasAnyRole("ADMIN","MANAGERS")
-                    .requestMatchers("/login", "/users").permitAll()
+                    .requestMatchers("/livros").permitAll()
                     .anyRequest().authenticated())
                     .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                     .build();
