@@ -38,6 +38,7 @@ public class WebSecurityConfig {
                     .requestMatchers(HttpMethod.POST,"/login").permitAll()
                     .requestMatchers(HttpMethod.POST,"/usuarios").permitAll()
                     .requestMatchers("/livros").permitAll()
+                    .requestMatchers("/exemplares").permitAll()
                     .anyRequest().authenticated())
                     .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                     .build();
